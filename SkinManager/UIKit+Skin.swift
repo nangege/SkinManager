@@ -14,38 +14,38 @@ public typealias StringPicker  = Picker<String,SkinManager>
 public typealias AttributedStringPicker  = Picker<NSAttributedString,SkinManager>
 
 extension Skin where Base:UIView{
-    
+  
   public var backgroundColor:ColorPicker?{
-    set{ addPicker(newValue, for: .BackgroundColorKey) }
-    get{ return pickerFor(.BackgroundColorKey) as? ColorPicker }
+    set{ addPicker(newValue, for: .BackgroundColor) }
+    get{ return pickerFor(.BackgroundColor) as? ColorPicker }
   }
-    
+  
   public var alpha:CGFloatPicker?{
-    set{ addPicker(newValue, for: .AlphaKey)}
-    get{ return pickerFor(.AlphaKey) as? CGFloatPicker }
+    set{ addPicker(newValue, for: .Alpha)}
+    get{ return pickerFor(.Alpha) as? CGFloatPicker }
   }
-    
+  
   public var tintColor:ColorPicker?{
-    set { addPicker(newValue, for: .TintColorKey)}
-    get { return pickerFor(.TintColorKey) as? ColorPicker}
+    set { addPicker(newValue, for: .TintColor)}
+    get { return pickerFor(.TintColor) as? ColorPicker}
   }
 }
 
 extension Skin where Base:UILabel{
-    
+  
   public var text:StringPicker?{
-    set{ addPicker(newValue, for: .TextKey ) }
-    get{ return pickerFor(.TextKey) as? StringPicker }
+    set{ addPicker(newValue, for: .Text ) }
+    get{ return pickerFor(.Text) as? StringPicker }
   }
-    
+  
   public var textColor:ColorPicker?{
-    set{ addPicker(newValue, for: .TextColorKey) }
-    get{ return pickerFor(.TextColorKey) as? ColorPicker}
+    set{ addPicker(newValue, for: .TextColor) }
+    get{ return pickerFor(.TextColor) as? ColorPicker}
   }
-    
+  
   public var tintColor:ColorPicker?{
-    set{ addPicker(newValue, for: .TintColorKey) }
-    get{ return pickerFor(.TintColorKey) as? ColorPicker }
+    set{ addPicker(newValue, for: .TintColor) }
+    get{ return pickerFor(.TintColor) as? ColorPicker }
   }
   
 }
@@ -53,8 +53,8 @@ extension Skin where Base:UILabel{
 extension Skin where Base:UIImageView{
   
   public var image:ImagePicker?{
-    set{ addPicker(newValue, for: .ImageKey) }
-    get{ return pickerFor(.ImageKey) as? ImagePicker }
+    set{ addPicker(newValue, for: .Image) }
+    get{ return pickerFor(.Image) as? ImagePicker }
   }
   
 }
@@ -62,17 +62,25 @@ extension Skin where Base:UIImageView{
 extension Skin where Base:UIButton{
   
   public func setImage(_ imagePicker:ImagePicker, for state:UIControlState){
-    addStatePicker(imagePicker, for: state, selector: .SetButtonImageKey)
+    addStatePicker(imagePicker, for: state, selector: .SetButtonImage)
   }
-    
+  
+  public func setBackgroundColor(_ imagePicker:ImagePicker, for state:UIControlState){
+    addPicker(imagePicker, for: .SetButtonBackground)
+  }
+  
   public func setTitle(_ stringPicker:StringPicker,for state:UIControlState){
-    addStatePicker(stringPicker, for: state, selector: .SetButtonTitleKey)
+    addStatePicker(stringPicker, for: state, selector: .SetButtonTitle)
+  }
+  
+  public func setTitleColor(_ colorPicker:ColorPicker, for state:UIControlState){
+    addPicker(colorPicker, for: .SetButtonTitleColor)
   }
   
   public func setAttributedTitle(_ attributedStrinPicker:AttributedStringPicker, for state:UIControlState){
-    addStatePicker(attributedStrinPicker, for: state, selector: .SetButtonAttributeTitleKey)
+    addStatePicker(attributedStrinPicker, for: state, selector: .SetButtonAttributeTitle)
   }
-    
+  
   private func addStatePicker(_ picker:ValueProtocol,for state:UIControlState,selector:Selector){
     
     if let statePicker = pickerFor(selector) as? StatePicker{
@@ -89,43 +97,69 @@ extension Skin where Base:UIButton{
 extension Skin where Base:CALayer{
   
   public var backgroundColor:CGColorPicker?{
-    set{ addPicker(newValue, for: .LayerBackgroundColorKey) }
-    get{ return pickerFor(.LayerBackgroundColorKey) as? CGColorPicker }
+    set{ addPicker(newValue, for: .LayerBackgroundColor) }
+    get{ return pickerFor(.LayerBackgroundColor) as? CGColorPicker }
   }
-    
+  
   public var borderColor:CGColorPicker?{
-    set{ addPicker(newValue, for: .LayerBorderColorKey) }
-    get{ return pickerFor(.LayerBorderColorKey) as? CGColorPicker }
+    set{ addPicker(newValue, for: .LayerBorderColor) }
+    get{ return pickerFor(.LayerBorderColor) as? CGColorPicker }
   }
 }
 
+extension Skin where Base:UISwitch{
+  public var onTintColor:ColorPicker?{
+    set{ addPicker(newValue, for: .OnTintColor) }
+    get{ return pickerFor(.OnTintColor) as? ColorPicker }
+  }
+  
+  public var thumbTintColor:ColorPicker?{
+    set{ addPicker(newValue, for: .ThumbTintColor) }
+    get{ return pickerFor(.ThumbTintColor) as? ColorPicker }
+  }
+  
+  public var onImage:ImagePicker?{
+    set{ addPicker(newValue, for: .OnImage) }
+    get{ return pickerFor(.OnImage) as? ImagePicker }
+  }
+  
+  public var offImage:ImagePicker?{
+    set{ addPicker(newValue, for: .OffImage) }
+    get{ return pickerFor(.OnImage) as? ImagePicker }
+  }
+  
+}
+
 private extension Selector{
-    
+  
   /// UIView
-  static let AlphaKey           = #selector(setter: UIView.alpha)
-  static let BackgroundColorKey = #selector(setter: UIView.backgroundColor)
-  static let TintColorKey       = #selector(setter: UIView.tintColor)
-    
-    
+  static let Alpha           = #selector(setter: UIView.alpha)
+  static let BackgroundColor = #selector(setter: UIView.backgroundColor)
+  static let TintColor       = #selector(setter: UIView.tintColor)
+  
   /// UIlabel
-  static let TextKey            = #selector(setter: UILabel.text)
-  static let TextColorKey       = #selector(setter: UILabel.textColor)
-  static let AttributedTextKey  = #selector(setter: UILabel.attributedText)
-    
-    
+  static let Text            = #selector(setter: UILabel.text)
+  static let TextColor       = #selector(setter: UILabel.textColor)
+  static let AttributedText  = #selector(setter: UILabel.attributedText)
+  
   /// UIImageView
-  static let ImageKey           = #selector(setter: UIImageView.image)
-    
-    
+  static let Image           = #selector(setter: UIImageView.image)
+  
   /// UIButton
-  static let SetButtonImageKey  = #selector(UIButton.setImage(_:for:))
-  static let SetButtonTitleKey  = #selector(UIButton.setTitle(_:for:))
-  static let SetButtonBackgroundKey = #selector(UIButton.setBackgroundImage(_:for:))
-  static let SetButtonTitleColorKey = #selector(UIButton.setTitleColor(_:for:))
-  static let SetButtonAttributeTitleKey  = #selector(UIButton.setAttributedTitle(_:for:))
+  static let SetButtonImage  = #selector(UIButton.setImage(_:for:))
+  static let SetButtonTitle  = #selector(UIButton.setTitle(_:for:))
+  static let SetButtonBackground = #selector(UIButton.setBackgroundImage(_:for:))
+  static let SetButtonTitleColor = #selector(UIButton.setTitleColor(_:for:))
+  static let SetButtonAttributeTitle  = #selector(UIButton.setAttributedTitle(_:for:))
+  
+  /// UISwitch
+  static let OnTintColor = #selector(setter: UISwitch.onTintColor)
+  static let ThumbTintColor = #selector(setter: UISwitch.thumbTintColor)
+  static let OnImage = #selector(setter: UISwitch.onImage)
+  static let OffImage = #selector(setter: UISwitch.offImage)
   
   /// CALayer
-  static let LayerBorderColorKey     = #selector(setter: CALayer.borderColor)
-  static let LayerBackgroundColorKey = #selector(setter: CALayer.backgroundColor)
-    
+  static let LayerBorderColor     = #selector(setter: CALayer.borderColor)
+  static let LayerBackgroundColor = #selector(setter: CALayer.backgroundColor)
+  
 }
