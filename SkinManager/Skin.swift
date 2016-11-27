@@ -49,7 +49,18 @@ extension Skin{
   public func pickerFor(_ key:Selector) -> Applicable?{
     return skinPickers[key]
   }
+  
+  public func addStatePicker(_ picker:ValueProtocol,for state:UIControlState,selector:Selector){
     
+    if let statePicker = pickerFor(selector) as? StatePicker{
+      statePicker.addPicker(picker, for: state)
+    }else{
+      let statePicker = StatePicker()
+      statePicker.addPicker(picker, for: state)
+      addPicker(statePicker, for: selector)
+    }
+  }
+  
   private func perform(_ sel:Selector,picker:Applicable){
     picker.apply(to: base, sel: sel)
   }

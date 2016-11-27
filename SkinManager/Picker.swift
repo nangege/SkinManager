@@ -8,24 +8,29 @@
 
 import Foundation
 
-open class Picker<T,V:PickerManagerProtocol>:PickerProtocol {
+open class Picker<T>:PickerProtocol {
     
   typealias ValueType = T
     
   public convenience init(values:[T]){
     self.init()
     self.valueGenerator = {
-      return V.valueFrom(array: values)
+      return SkinManager.valueFrom(array: values)
     }
   }
     
-  open class func values(_ values:[T]) -> Picker<T,V>{
-    return Picker<T,V>(values: values)
+  open class func values(_ values:[T]) -> Picker<T>{
+    return Picker<T>(values: values)
   }
     
-  open class func values(_ values:T ...) -> Picker<T,V>{
-    return Picker<T,V>(values: values)
+  open class func values(_ values:T ...) -> Picker<T>{
+    return Picker<T>(values: values)
   }
 }
+
+public typealias CGFloatPicker = Picker<CGFloat>
+public typealias CGColorPicker = Picker<CGColor>
+public typealias StringPicker  = Picker<String>
+public typealias AttributedStringPicker  = Picker<NSAttributedString>
 
 

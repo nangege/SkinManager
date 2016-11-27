@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol PickerManagerProtocol {
+public protocol ValueFilter {
   static func valueFrom<T>(array:[T]?) -> T?
 }
 
@@ -28,14 +28,14 @@ public struct SkinManager {
   }
     
   private static func performActions(){
-
     objectActionMapper.forEach { (key: AnyHashable, value: AnyObject) in
       if let value = value as? Block {
         value.block()
         return
       }
       
-      if let value = value as? String,let obj = key as AnyObject?{
+      if let value = value as? String,
+        let obj = key as AnyObject?{
         let sel = NSSelectorFromString(value)
         if obj.responds(to: sel){
           _ = obj.perform(sel)
@@ -63,7 +63,7 @@ extension SkinManager{
   }
 }
 
-extension SkinManager:PickerManagerProtocol{
+extension SkinManager:ValueFilter{
   public static func valueFrom<T>(array:[T]?) -> T?{
     guard let array = array, array.count > 0 else{ return nil }
     

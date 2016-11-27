@@ -35,7 +35,6 @@ private struct Closue<T>{
 }
 
 var AssociatedValueGeneratorKey:UInt8 = 0
-var AssociatedValuesKey:UInt8 = 1
 
 extension PickerProtocol{
     
