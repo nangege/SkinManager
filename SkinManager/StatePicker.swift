@@ -17,7 +17,7 @@ internal class StatePicker:PickerProtocol{
     
   internal var values:[ValueType]?
     
-  internal func addPicker(_ picker:ValueProtocol, for state:UIControlState){
+  internal func addPicker(_ picker:ValueProtocol?, for state:UIControlState){
     if let values = values{
       self.values = values.filter{  $0.state != state }
     }else{

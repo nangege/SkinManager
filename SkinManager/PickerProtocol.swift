@@ -34,7 +34,9 @@ private struct Closue<T>{
   }
 }
 
-var AssociatedValueGeneratorKey:UInt8 = 0
+struct AssociatedKey {
+  static var ValueGenerator = "ValueGenerator"
+}
 
 extension PickerProtocol{
     
@@ -42,9 +44,9 @@ extension PickerProtocol{
     
   var valueGenerator:ValueGenerator?{
         
-    get{ return (objc_getAssociatedObject(self, &AssociatedValueGeneratorKey) as? Closue<ValueType>)?.closue }
+    get{ return (objc_getAssociatedObject(self, &AssociatedKey.ValueGenerator) as? Closue<ValueType>)?.closue }
     
-    set{ objc_setAssociatedObject(self, &AssociatedValueGeneratorKey, Closue<ValueType>( closue: newValue ), .OBJC_ASSOCIATION_COPY_NONATOMIC) }
+    set{ objc_setAssociatedObject(self, &AssociatedKey.ValueGenerator, Closue<ValueType>( closue: newValue ), .OBJC_ASSOCIATION_COPY_NONATOMIC) }
   }
 
   var value:ValueType?{

@@ -49,6 +49,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5H2-iF-KGE">
                                         <rect key="frame" x="137" y="168" width="46" height="168"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="swichMode:" destination="quG-ww-YOO" eventType="touchUpInside" id="uzR-e8-sEC"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IMO-eF-Cny">
                                         <rect key="frame" x="137" y="336" width="46" height="168"/>
@@ -66,6 +69,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="UKp-eT-d7b"/>
+                    <connections>
+                        <outlet property="switchButton" destination="5H2-iF-KGE" id="MXi-By-su4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vdM-Vq-ykq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

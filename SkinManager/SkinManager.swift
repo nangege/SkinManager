@@ -20,7 +20,7 @@ public struct SkinManager {
     }
   }
 
-  fileprivate static var objectActionMapper = [AnyHashable : AnyObject]()
+  fileprivate static var objectActionMapper = Dictionary<Weak<NSObjectProtocol>,AnyObject>()
   fileprivate static var objectToUpdate = Set<Weak<NSObjectProtocol>>()
   
   private static func updateSkin(){
@@ -28,14 +28,17 @@ public struct SkinManager {
   }
     
   private static func performActions(){
-    objectActionMapper.forEach { (key: AnyHashable, value: AnyObject) in
+    objectActionMapper.forEach { (key: Weak<NSObjectProtocol>, value: AnyObject) in
       if let value = value as? Block {
         value.block()
         return
       }
       
       if let value = value as? String,
-        let obj = key as AnyObject?{
+        let weakObj = key as? Weak<NSObjectProtocol>{
+        guard let obj = weakObj.value else{
+            return
+        }
         let sel = NSSelectorFromString(value)
         if obj.responds(to: sel){
           _ = obj.perform(sel)
