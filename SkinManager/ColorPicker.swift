@@ -10,7 +10,7 @@ import UIKit
 
 open class ColorPicker:PickerProtocol {
   
-  typealias ValueType = UIColor
+  public typealias ValueType = UIColor
   
   public convenience init(colors:[UIColor]){
     self.init()

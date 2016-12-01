@@ -12,7 +12,7 @@ public typealias Transformer<T> =  (T) -> [T]
 
 open class ImagePicker:PickerProtocol {
     
-  typealias ValueType = UIImage
+  public typealias ValueType = UIImage
     
   convenience init(names:[String]){
     self.init()

@@ -10,8 +10,9 @@ import Foundation
 
 open class Picker<T>:PickerProtocol {
     
-  typealias ValueType = T
-    
+  public typealias ValueType = T
+  
+  
   public convenience init(values:[T]){
     self.init()
     self.valueGenerator = {

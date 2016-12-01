@@ -23,7 +23,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Og-wu-4Xz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-878" y="183"/>
+            <point key="canvasLocation" x="-1082" y="174"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="avu-wO-AOI">
@@ -41,20 +41,31 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="日夜间模式切换" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DWC-h4-lwT">
-                                        <rect key="frame" x="99.5" y="0.0" width="121.5" height="168"/>
+                                        <rect key="frame" x="99.5" y="0.0" width="121.5" height="101"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5H2-iF-KGE">
-                                        <rect key="frame" x="137" y="168" width="46" height="168"/>
+                                        <rect key="frame" x="137" y="101" width="46" height="100.5"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
                                             <action selector="swichMode:" destination="quG-ww-YOO" eventType="touchUpInside" id="uzR-e8-sEC"/>
                                         </connections>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TPJ-5j-62b">
+                                        <rect key="frame" x="40" y="201.5" width="240" height="101"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Tc6-Pd-tYb">
+                                        <rect key="frame" x="135.5" y="302.5" width="49" height="100.5"/>
+                                        <subviews>
+                                            <switch opaque="NO" contentMode="center" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yy0-wL-fps">
+                                                <rect key="frame" x="0.0" y="35" width="51" height="31"/>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IMO-eF-Cny">
-                                        <rect key="frame" x="137" y="336" width="46" height="168"/>
+                                        <rect key="frame" x="137" y="403" width="46" height="101"/>
                                         <state key="normal" title="Button"/>
                                     </button>
                                 </subviews>
@@ -70,12 +81,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="UKp-eT-d7b"/>
                     <connections>
+                        <outlet property="imageView" destination="TPJ-5j-62b" id="RPn-Ms-uPk"/>
+                        <outlet property="label" destination="DWC-h4-lwT" id="hnz-m8-aN6"/>
                         <outlet property="switchButton" destination="5H2-iF-KGE" id="MXi-By-su4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vdM-Vq-ykq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-202.5" y="180.63380281690141"/>
+            <point key="canvasLocation" x="-259" y="173"/>
         </scene>
     </scenes>
 </document>

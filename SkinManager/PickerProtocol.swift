@@ -16,7 +16,7 @@ public protocol Applicable{
   func apply(to:AnyObject,sel:Selector)
 }
 
-protocol PickerProtocol:class,ValueProtocol,Applicable{
+public protocol PickerProtocol:class,ValueProtocol,Applicable{
     
   associatedtype  ValueType
     
@@ -49,7 +49,7 @@ extension PickerProtocol{
     set{ objc_setAssociatedObject(self, &AssociatedKey.ValueGenerator, Closue<ValueType>( closue: newValue ), .OBJC_ASSOCIATION_COPY_NONATOMIC) }
   }
 
-  var value:ValueType?{
+  public var value:ValueType?{
       return valueGenerator?()
   }
 }

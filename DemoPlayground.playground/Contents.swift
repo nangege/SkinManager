@@ -4,3 +4,5 @@ import UIKit
 import SkinManager
 
 var str = "Hello, playground"
+
+let picker = Picker(values: ["gbfb","fgfg"])

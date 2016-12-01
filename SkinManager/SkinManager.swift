@@ -49,19 +49,19 @@ public struct SkinManager {
 }
 
 extension SkinManager{
-  internal static func add<T:NSObjectProtocol>(observer:T){
+  internal static func add(observer:NSObjectProtocol){
     self.objectToUpdate.insert(Weak(value: observer))
   }
   
-  public static func add<T:NSObjectProtocol>(observer:T, for sel:Selector){
+  public static func add(observer:NSObjectProtocol, for sel:Selector){
     self.objectActionMapper[Weak(value: observer)] = NSStringFromSelector(sel) as AnyObject?
   }
   
-  public static func add<T:NSObjectProtocol>(observer:T, using block:@escaping () -> ()){
+  public static func add(observer:NSObjectProtocol, using block:@escaping () -> ()){
     self.objectActionMapper[Weak(value: observer)] =  Block(block: block)
   }
   
-  public static func remove<T:NSObjectProtocol>(observer:T){
+  public static func remove(observer:NSObjectProtocol){
     self.objectActionMapper.removeValue(forKey: Weak(value:observer))
   }
 }
