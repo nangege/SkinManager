@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:DemoPlayground.playground">
+      location = "group:/Users/nange/Desktop/SkinManager/SkinDemoPlayground.playground">
    </FileRef>
    <FileRef
       location = "container:SkinManager.xcodeproj">

@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     view.skin.backgroundColor = .hexs("#2dff86","#77054c")
     label.skin.textColor = .hexs("#fe5533","#33ddff")
     label.skin.alpha = .values([0.8,1.0])
-    imageView.skin.image = ImagePicker.names(["day","night"])
+    imageView.skin.image = .names(["day","night"])
     switchButton.skin.setTitle(.values("日间","夜间"), for: .normal)
     
     SkinManager.add(observer: self){

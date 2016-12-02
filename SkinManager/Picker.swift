@@ -30,7 +30,6 @@ open class Picker<T>:PickerProtocol {
 }
 
 public typealias CGFloatPicker = Picker<CGFloat>
-public typealias CGColorPicker = Picker<CGColor>
 public typealias StringPicker  = Picker<String>
 public typealias AttributedStringPicker  = Picker<NSAttributedString>
 
