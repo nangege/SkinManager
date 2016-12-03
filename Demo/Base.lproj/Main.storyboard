@@ -37,35 +37,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xof-PL-dWK">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xof-PL-dWK">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="日夜间模式切换" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DWC-h4-lwT">
-                                        <rect key="frame" x="99.5" y="0.0" width="121.5" height="101"/>
+                                        <rect key="frame" x="99.5" y="0.0" width="121.5" height="48.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5H2-iF-KGE">
-                                        <rect key="frame" x="137" y="101" width="46" height="100.5"/>
+                                        <rect key="frame" x="137" y="48.5" width="46" height="71.5"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
                                             <action selector="swichMode:" destination="quG-ww-YOO" eventType="touchUpInside" id="uzR-e8-sEC"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TPJ-5j-62b">
-                                        <rect key="frame" x="40" y="201.5" width="240" height="101"/>
+                                        <rect key="frame" x="40" y="120" width="240" height="239.5"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Tc6-Pd-tYb">
-                                        <rect key="frame" x="135.5" y="302.5" width="49" height="100.5"/>
+                                        <rect key="frame" x="135.5" y="359.5" width="49" height="73.5"/>
                                         <subviews>
                                             <switch opaque="NO" contentMode="center" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yy0-wL-fps">
-                                                <rect key="frame" x="0.0" y="35" width="51" height="31"/>
+                                                <rect key="frame" x="0.0" y="21" width="51" height="31"/>
                                             </switch>
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IMO-eF-Cny">
-                                        <rect key="frame" x="137" y="403" width="46" height="101"/>
+                                        <rect key="frame" x="137" y="433" width="46" height="71"/>
                                         <state key="normal" title="Button"/>
                                     </button>
                                 </subviews>

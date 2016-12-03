@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7A3E25A51DE60B0F006C5992 /* SkinManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A3E25A31DE60B0F006C5992 /* SkinManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7A3E25B71DE60B6A006C5992 /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E25AC1DE60B6A006C5992 /* ColorPicker.swift */; };
 		7A3E25B81DE60B6A006C5992 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E25AD1DE60B6A006C5992 /* ImagePicker.swift */; };
 		7A3E25BA1DE60B6A006C5992 /* Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E25AF1DE60B6A006C5992 /* Picker.swift */; };
 		7A3E25BB1DE60B6A006C5992 /* PickerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E25B01DE60B6A006C5992 /* PickerProtocol.swift */; };
@@ -26,14 +25,12 @@
 		7A91DBD31DE7415F00777134 /* SkinManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A3E25A01DE60B0F006C5992 /* SkinManager.framework */; };
 		7AEDB64D1DEF249C00B666B1 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEDB64C1DEF249C00B666B1 /* Theme.swift */; };
 		7AEDB64F1DF0FFDD00B666B1 /* ColorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEDB64E1DF0FFDD00B666B1 /* ColorInterface.swift */; };
-		7AEDB6511DF1035500B666B1 /* CGColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEDB6501DF1035500B666B1 /* CGColorPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7A3E25A01DE60B0F006C5992 /* SkinManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SkinManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A3E25A31DE60B0F006C5992 /* SkinManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkinManager.h; sourceTree = "<group>"; };
 		7A3E25A41DE60B0F006C5992 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7A3E25AC1DE60B6A006C5992 /* ColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
 		7A3E25AD1DE60B6A006C5992 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		7A3E25AF1DE60B6A006C5992 /* Picker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Picker.swift; sourceTree = "<group>"; };
 		7A3E25B01DE60B6A006C5992 /* PickerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerProtocol.swift; sourceTree = "<group>"; };
@@ -52,7 +49,6 @@
 		7A3E26361DE730E8006C5992 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7AEDB64C1DEF249C00B666B1 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		7AEDB64E1DF0FFDD00B666B1 /* ColorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorInterface.swift; sourceTree = "<group>"; };
-		7AEDB6501DF1035500B666B1 /* CGColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGColorPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,8 +102,6 @@
 			isa = PBXGroup;
 			children = (
 				7AEDB64E1DF0FFDD00B666B1 /* ColorInterface.swift */,
-				7AEDB6501DF1035500B666B1 /* CGColorPicker.swift */,
-				7A3E25AC1DE60B6A006C5992 /* ColorPicker.swift */,
 				7A3E25AD1DE60B6A006C5992 /* ImagePicker.swift */,
 				7A3E25AF1DE60B6A006C5992 /* Picker.swift */,
 				7A3E25B01DE60B6A006C5992 /* PickerProtocol.swift */,
@@ -174,6 +168,7 @@
 				7A3E26241DE730E8006C5992 /* Sources */,
 				7A3E26251DE730E8006C5992 /* Frameworks */,
 				7A3E26261DE730E8006C5992 /* Resources */,
+				7AEDB6521DF2528900B666B1 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -246,6 +241,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7AEDB6521DF2528900B666B1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SkinManager.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7A3E259B1DE60B0F006C5992 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -254,9 +266,7 @@
 				7A3E25BD1DE60B6A006C5992 /* SkinManager.swift in Sources */,
 				7A3E25BB1DE60B6A006C5992 /* PickerProtocol.swift in Sources */,
 				7A3E25C11DE60B6A006C5992 /* UIKit+Skin.swift in Sources */,
-				7A3E25B71DE60B6A006C5992 /* ColorPicker.swift in Sources */,
 				7A3E25C01DE60B6A006C5992 /* UIImageExtension.swift in Sources */,
-				7AEDB6511DF1035500B666B1 /* CGColorPicker.swift in Sources */,
 				7A3E25BE1DE60B6A006C5992 /* StatePicker.swift in Sources */,
 				7A3E25BC1DE60B6A006C5992 /* Skin.swift in Sources */,
 				7A3E25BF1DE60B6A006C5992 /* UIColorExtension.swift in Sources */,

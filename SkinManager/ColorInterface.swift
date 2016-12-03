@@ -32,3 +32,27 @@ public extension ColorInterface{
     return Self.hexs(hexs)
   }
 }
+
+open class ColorPicker:PickerProtocol,ColorInterface {
+  
+  public typealias ValueType = UIColor
+  
+  public convenience required init(colors:[UIColor]){
+    self.init()
+    self.valueGenerator = {
+      return SkinManager.valueFrom(array: colors)
+    }
+  }
+}
+
+open class CGColorPicker:PickerProtocol,ColorInterface{
+  public typealias ValueType = CGColor
+  
+  public convenience required init(colors:[UIColor]){
+    self.init()
+    self.valueGenerator = {
+      return SkinManager.valueFrom(array: colors)?.cgColor
+    }
+  }
+  
+}

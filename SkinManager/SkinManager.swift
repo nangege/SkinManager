@@ -34,11 +34,7 @@ public struct SkinManager {
         return
       }
       
-      if let value = value as? String,
-        let weakObj = key as? Weak<NSObjectProtocol>{
-        guard let obj = weakObj.value else{
-            return
-        }
+      if let value = value as? String,let obj = key.value{
         let sel = NSSelectorFromString(value)
         if obj.responds(to: sel){
           _ = obj.perform(sel)
