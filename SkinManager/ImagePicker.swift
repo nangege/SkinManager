@@ -14,24 +14,21 @@ open class ImagePicker:PickerProtocol {
     
   public typealias ValueType = UIImage
     
-  convenience init(names:[String]){
-    self.init()
+  required public init(names:[String]){
     self.valueGenerator = {
       guard let name = SkinManager.valueFrom(array: names) else { return nil}
       return UIImage(named: name)
     }
   }
   
-  convenience init(colors:[UIColor]){
-    self.init()
+  required public init(colors:[UIColor]){
     self.valueGenerator = {
       guard let color = SkinManager.valueFrom(array: colors) else { return nil }
       return UIImage.from(color: color)
     }
   }
   
-  convenience init(hexs:[String]){
-    self.init()
+  required public init(hexs:[String]){
     self.valueGenerator = {
       let colors = hexs.map{ return UIColor($0)}
       guard let color = SkinManager.valueFrom(array: colors) else { return nil }
@@ -39,16 +36,10 @@ open class ImagePicker:PickerProtocol {
     }
   }
   
-  convenience init(keyPath: String){
-    self.init()
+  required public init(keyPath: String){
     self.valueGenerator = {
-      guard let imagePath:String = SkinManager.value(forKeyPath: keyPath) else { return nil}
-      return UIImage(named: imagePath)
+      return SkinManager.image(forKeyPath: keyPath)
     }
-  }
-  
-  open class func images(_ images:[UIImage]) -> ImagePicker{
-    return ImagePicker()
   }
   
   open class func name(_ name:String,transformer:Transformer<String>) -> ImagePicker{

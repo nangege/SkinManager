@@ -4,10 +4,12 @@
 <dict>
 	<key>ViewController</key>
 	<dict>
+		<key>alpha</key>
+		<real>0.5</real>
 		<key>backgroundImage</key>
 		<string>backgroundImage</string>
 		<key>backgroundColor</key>
-		<string>#45ee66</string>
+		<string>#ffffffaa</string>
 	</dict>
 </dict>
 </plist>

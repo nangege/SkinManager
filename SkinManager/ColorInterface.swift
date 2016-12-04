@@ -42,35 +42,30 @@ open class ColorPicker:PickerProtocol,ColorInterface {
   
   public typealias ValueType = UIColor
   
-  public convenience required init(colors:[UIColor]) {
-    self.init()
+  public required init(colors:[UIColor]) {
     self.valueGenerator = {
       return SkinManager.valueFrom(array: colors)
     }
   }
   
-  public convenience required init(keyPath: String) {
-    self.init()
+  public required init(keyPath: String) {
     self.valueGenerator = {
       guard let rgba:String = SkinManager.value(forKeyPath: keyPath) else{ return nil }
       return UIColor(rgba)
     }
   }
-  
 }
 
 open class CGColorPicker:PickerProtocol,ColorInterface {
   public typealias ValueType = CGColor
   
-  public convenience required init(colors:[UIColor]) {
-    self.init()
+  public required init(colors:[UIColor]) {
     self.valueGenerator = {
       return SkinManager.valueFrom(array: colors)?.cgColor
     }
   }
   
-  public convenience required init(keyPath:String) {
-    self.init()
+  public required init(keyPath:String) {
     self.valueGenerator = {
       guard let rgba:String = SkinManager.value(forKeyPath: keyPath) else{ return nil }
       return UIColor(rgba).cgColor

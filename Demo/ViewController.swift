@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Foundation
 import SkinManager
 
 class ViewController: UIViewController {
@@ -17,30 +16,21 @@ class ViewController: UIViewController {
   @IBOutlet weak var imageView: UIImageView!
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    let path = Bundle.main.path(forResource: "DaySkin", ofType: "plist")
-    let dict = NSDictionary(contentsOfFile: path!)
-    SkinManager.skinMapper = dict
+  
+    SkinManager.switchTo(plistName: "DaySkin", path: .mainBundle)
     
     view.skin.backgroundColor = .keyPath("ViewController.backgroundColor")
     
     label.skin.textColor = .hexs("#fe5533","#33ddff")
-    label.skin.alpha     = .values([0.8,1.0])
+    label.skin.alpha = .keyPath("ViewController.alpha")
+    
+    label.backgroundColor = ColorPicker.hexs("#ff00ff","#00ff00").value
     
     imageView.skin.image = .keyPath("ViewController.backgroundImage")
     
     switchButton.skin.setTitle(.values("日间","夜间"), for: .normal)
-    
-    SkinManager.add(observer: self){
-      print("test Block")
-    }
-    label.backgroundColor = ColorPicker.hexs("#ff00ff","#00ff00").value
-    
-//    let color = UIColor(SkinManager.valueFrom(keyPath: "color")!)
-//    label.backgroundColor = color
+
     SkinManager.add(observer: self, for: #selector(updateSkin))
-    
-    // Do any additional setup after loading the view, typically from a nib.
   }
 
   override func didReceiveMemoryWarning() {

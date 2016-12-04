@@ -24,11 +24,26 @@ public struct SkinManager {
     }
   }
   
-  public static var skinMapper: NSDictionary? = nil {
-    didSet{
-      updateSkin()
-      performActions()
+  fileprivate static var skinDict: NSDictionary?
+  fileprivate static var path:Path?
+  
+  public static func switchTo(plistName: String, path:Path){
+    guard let plistPath = path.plistPath(name: plistName) else {
+      assertionFailure("SkinManager:  No plist named \(plistName) from \(path)")
+      return
     }
+    guard let plistDict = NSDictionary(contentsOfFile: plistPath) else {
+      assertionFailure("SkinManager: Read plist failed from \(plistPath)")
+      return
+    }
+    switchTo(skinDict: plistDict, path: path)
+  }
+  
+  public static func switchTo(skinDict: NSDictionary, path: Path){
+    self.skinDict = skinDict
+    self.path = path
+    updateSkin()
+    performActions()
   }
 
   fileprivate static var objectActionMapper = Dictionary<Weak<NSObjectProtocol>,AnyObject>()
@@ -87,7 +102,38 @@ extension SkinManager:ValueFilter {
 
 extension SkinManager:keyPathValue {
   public static func value<T>(forKeyPath keyPath:String) -> T? {
-    return skinMapper?.value(forKeyPath: keyPath) as? T
+    return skinDict?.value(forKeyPath: keyPath) as? T
+  }
+  
+  public static func image(forKeyPath keyPath:String) -> UIImage?{
+    
+    guard let imageName:String = value(forKeyPath: keyPath) else { return nil }
+    
+    if let filePath = path?.URL?.appendingPathComponent(imageName).path {
+      return UIImage(contentsOfFile: filePath)
+    } else {
+      return UIImage(named: imageName)
+    }
+  }
+}
+
+public enum Path {
+  
+  case mainBundle
+  case sandbox(Foundation.URL)
+  
+  public var URL: Foundation.URL? {
+    switch self {
+    case .mainBundle: return nil
+    case .sandbox(let path): return path
+    }
+  }
+  
+  public func plistPath(name: String) -> String? {
+    switch self {
+    case .mainBundle:        return Bundle.main.path(forResource: name, ofType: "plist")
+    case .sandbox(let path): return Foundation.URL(string: name + ".plist", relativeTo: path)?.path
+    }
   }
 }
 
