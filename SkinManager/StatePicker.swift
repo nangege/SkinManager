@@ -17,8 +17,8 @@ internal class StatePicker:PickerProtocol{
     
   internal var values:[ValueType]?
     
-  internal func addPicker(_ picker:ValueProtocol?, for state:UIControlState){
-    if let values = values{
+  internal func addPicker(_ picker:ValueProtocol?, for state:UIControlState) {
+    if let values = values {
       self.values = values.filter{  $0.state != state }
     }else{
       values = [ValueType]()
@@ -27,10 +27,10 @@ internal class StatePicker:PickerProtocol{
   }
 }
 
-extension StatePicker:Applicable{
+extension StatePicker:Applicable {
     
   func apply(to obj: AnyObject, sel: Selector) {
-        
+    
     guard let obj =  obj as? NSObject , obj.responds(to: sel) else { return }
         
     let method = obj.method(for: sel)
@@ -40,9 +40,9 @@ extension StatePicker:Applicable{
       setState(obj,sel,$0.picker?.skinValue as AnyObject,$0.state)
     }
   }
+  
+  private typealias setValueForStateIMP = @convention(c) (NSObject, Selector, AnyObject?, UIControlState) -> Void
 }
-
-private typealias setValueForStateIMP = @convention(c) (NSObject, Selector, AnyObject?, UIControlState) -> Void
 
 extension UIControlState:Hashable{
   public var hashValue: Int{

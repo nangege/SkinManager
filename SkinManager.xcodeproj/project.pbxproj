@@ -22,10 +22,35 @@
 		7A3E26301DE730E8006C5992 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A3E262E1DE730E8006C5992 /* Main.storyboard */; };
 		7A3E26321DE730E8006C5992 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A3E26311DE730E8006C5992 /* Assets.xcassets */; };
 		7A3E26351DE730E8006C5992 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A3E26331DE730E8006C5992 /* LaunchScreen.storyboard */; };
-		7A91DBD31DE7415F00777134 /* SkinManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A3E25A01DE60B0F006C5992 /* SkinManager.framework */; };
 		7AEDB64D1DEF249C00B666B1 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEDB64C1DEF249C00B666B1 /* Theme.swift */; };
 		7AEDB64F1DF0FFDD00B666B1 /* ColorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEDB64E1DF0FFDD00B666B1 /* ColorInterface.swift */; };
+		7AEDB69C1DF2BC6E00B666B1 /* DaySkin.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AEDB69B1DF2BC6E00B666B1 /* DaySkin.plist */; };
+		7AEDB69F1DF31DF700B666B1 /* SkinManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A3E25A01DE60B0F006C5992 /* SkinManager.framework */; };
+		7AEDB6A11DF31F4F00B666B1 /* SkinManager.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A3E25A01DE60B0F006C5992 /* SkinManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7AEDB69D1DF31DC900B666B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A3E25971DE60B0F006C5992 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A3E259F1DE60B0F006C5992;
+			remoteInfo = SkinManager;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7AEDB6A01DF31F4600B666B1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7AEDB6A11DF31F4F00B666B1 /* SkinManager.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		7A3E25A01DE60B0F006C5992 /* SkinManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SkinManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +74,8 @@
 		7A3E26361DE730E8006C5992 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7AEDB64C1DEF249C00B666B1 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		7AEDB64E1DF0FFDD00B666B1 /* ColorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorInterface.swift; sourceTree = "<group>"; };
+		7AEDB6961DF2B6C000B666B1 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		7AEDB69B1DF2BC6E00B666B1 /* DaySkin.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DaySkin.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A91DBD31DE7415F00777134 /* SkinManager.framework in Frameworks */,
+				7AEDB69F1DF31DF700B666B1 /* SkinManager.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +152,8 @@
 				7A3E26311DE730E8006C5992 /* Assets.xcassets */,
 				7A3E26331DE730E8006C5992 /* LaunchScreen.storyboard */,
 				7A3E26361DE730E8006C5992 /* Info.plist */,
+				7AEDB6961DF2B6C000B666B1 /* MyPlayground.playground */,
+				7AEDB69B1DF2BC6E00B666B1 /* DaySkin.plist */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -168,11 +197,12 @@
 				7A3E26241DE730E8006C5992 /* Sources */,
 				7A3E26251DE730E8006C5992 /* Frameworks */,
 				7A3E26261DE730E8006C5992 /* Resources */,
-				7AEDB6521DF2528900B666B1 /* ShellScript */,
+				7AEDB6A01DF31F4600B666B1 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7AEDB69E1DF31DC900B666B1 /* PBXTargetDependency */,
 			);
 			name = Demo;
 			productName = Demo;
@@ -234,29 +264,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A3E26351DE730E8006C5992 /* LaunchScreen.storyboard in Resources */,
+				7AEDB69C1DF2BC6E00B666B1 /* DaySkin.plist in Resources */,
 				7A3E26321DE730E8006C5992 /* Assets.xcassets in Resources */,
 				7A3E26301DE730E8006C5992 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		7AEDB6521DF2528900B666B1 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/SkinManager.framework",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7A3E259B1DE60B0F006C5992 /* Sources */ = {
@@ -287,6 +301,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7AEDB69E1DF31DC900B666B1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7A3E259F1DE60B0F006C5992 /* SkinManager */;
+			targetProxy = 7AEDB69D1DF31DC900B666B1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7A3E262E1DE730E8006C5992 /* Main.storyboard */ = {

@@ -38,7 +38,15 @@ open class ImagePicker:PickerProtocol {
       return UIImage.from(color: color)
     }
   }
-    
+  
+  convenience init(keyPath: String){
+    self.init()
+    self.valueGenerator = {
+      guard let imagePath:String = SkinManager.value(forKeyPath: keyPath) else { return nil}
+      return UIImage(named: imagePath)
+    }
+  }
+  
   open class func images(_ images:[UIImage]) -> ImagePicker{
     return ImagePicker()
   }
@@ -61,5 +69,9 @@ open class ImagePicker:PickerProtocol {
   
   open class func colors(_ colors:UIColor ...) -> ImagePicker{
     return ImagePicker(colors: colors)
+  }
+  
+  open class func keyPath(_ keyPath:String) -> ImagePicker{
+    return ImagePicker(keyPath: keyPath)
   }
 }

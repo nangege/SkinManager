@@ -16,14 +16,14 @@ public protocol Applicable{
   func apply(to:AnyObject,sel:Selector)
 }
 
-public protocol PickerProtocol:class,ValueProtocol,Applicable{
+public protocol PickerProtocol:class,ValueProtocol,Applicable {
     
   associatedtype  ValueType
     
   var value:ValueType? { get }
 }
 
-private struct Closue<T>{
+private struct Closue<T> {
     
   typealias ClosueType = () -> T?
     
@@ -42,20 +42,20 @@ extension PickerProtocol{
     
   typealias ValueGenerator = () -> ValueType?
     
-  var valueGenerator:ValueGenerator?{
+  var valueGenerator:ValueGenerator? {
         
     get{ return (objc_getAssociatedObject(self, &AssociatedKey.ValueGenerator) as? Closue<ValueType>)?.closue }
     
     set{ objc_setAssociatedObject(self, &AssociatedKey.ValueGenerator, Closue<ValueType>( closue: newValue ), .OBJC_ASSOCIATION_COPY_NONATOMIC) }
   }
 
-  public var value:ValueType?{
-      return valueGenerator?()
+  public var value:ValueType? {
+    return valueGenerator?()
   }
 }
 
-extension PickerProtocol{
-  public var skinValue:Any?{
+extension PickerProtocol {
+  public var skinValue:Any? {
     return self.value as Any?
   }
 }

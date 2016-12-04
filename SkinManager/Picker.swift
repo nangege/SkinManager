@@ -12,8 +12,7 @@ open class Picker<T>:PickerProtocol {
     
   public typealias ValueType = T
   
-  
-  public convenience init(values:[T]){
+  public convenience init(values:[T]) {
     self.init()
     self.valueGenerator = {
       return SkinManager.valueFrom(array: values)
