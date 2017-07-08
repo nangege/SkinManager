@@ -153,7 +153,7 @@ class Weak<T: NSObjectProtocol>:Hashable, CustomStringConvertible {
   }
   
   var description: String{
-    return  "Weak<\(value?.description)>"
+    return  "Weak<\(String(describing: value?.description))>"
   }
 }
 

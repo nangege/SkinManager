@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.skinManager         = 'https://github.com/nangege/SkinManager'
+  s.homepage         = 'https://github.com/nangege/SkinManager'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'TangNan' => 'nangezao@foxmail.com' }
