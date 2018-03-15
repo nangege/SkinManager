@@ -8,30 +8,30 @@
 
 import Foundation
 
-open class Picker<T>:PickerProtocol {
+open class Picker<T>: PickerProtocol {
   public typealias ValueType = T
   
-  public required init(values:[T]) {
+  public required init(values: [T]) {
     self.valueGenerator = {
       return SkinManager.valueFrom(array: values)
     }
   }
   
-  public required init(keyPath:String) {
+  public required init(keyPath: String) {
     self.valueGenerator = {
       return SkinManager.value(forKeyPath: keyPath)
     }
   }
   
-  open class func values(_ values:[T]) -> Self{
+  open class func values(_ values: [T]) -> Self{
     return self.init(values: values)
   }
     
-  open class func values(_ values:T ...) -> Self{
+  open class func values(_ values: T ...) -> Self{
     return self.init(values: values)
   }
   
-  open class func keyPath(_ keyPath:String) -> Self{
+  open class func keyPath(_ keyPath: String) -> Self{
     return self.init(keyPath:keyPath)
   }
 }

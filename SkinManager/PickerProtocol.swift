@@ -42,20 +42,20 @@ extension PickerProtocol{
     
   typealias ValueGenerator = () -> ValueType?
     
-  var valueGenerator:ValueGenerator? {
+  var valueGenerator: ValueGenerator? {
         
     get{ return (objc_getAssociatedObject(self, &AssociatedKey.ValueGenerator) as? Closue<ValueType>)?.closue }
     
     set{ objc_setAssociatedObject(self, &AssociatedKey.ValueGenerator, Closue<ValueType>( closue: newValue ), .OBJC_ASSOCIATION_COPY_NONATOMIC) }
   }
 
-  public var value:ValueType? {
+  public var value: ValueType? {
     return valueGenerator?()
   }
 }
 
 extension PickerProtocol {
-  public var skinValue:Any? {
+  public var skinValue: Any? {
     return self.value as Any?
   }
 }

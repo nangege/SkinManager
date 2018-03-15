@@ -13,7 +13,7 @@ public protocol ValueFilter {
 }
 
 public protocol keyPathValue {
-  static func value<T>(forKeyPath keyPath:String) -> T?
+  static func value<T>(forKeyPath keyPath: String) -> T?
 }
 
 public struct SkinManager {
@@ -25,9 +25,9 @@ public struct SkinManager {
   }
   
   fileprivate static var skinDict: NSDictionary?
-  fileprivate static var path:Path?
+  fileprivate static var path: Path?
   
-  public static func switchTo(plistName: String, path:Path){
+  public static func switchTo(plistName: String, path: Path){
     guard let plistPath = path.plistPath(name: plistName) else {
       assertionFailure("SkinManager:  No plist named \(plistName) from \(path)")
       return
@@ -88,7 +88,7 @@ extension SkinManager{
   }
 }
 
-extension SkinManager:ValueFilter {
+extension SkinManager: ValueFilter {
   public static func valueFrom<T>(array:[T]?) -> T? {
     guard let array = array, array.count > 0 else{ return nil }
     
@@ -100,7 +100,7 @@ extension SkinManager:ValueFilter {
   }
 }
 
-extension SkinManager:keyPathValue {
+extension SkinManager: keyPathValue {
   public static func value<T>(forKeyPath keyPath:String) -> T? {
     return skinDict?.value(forKeyPath: keyPath) as? T
   }

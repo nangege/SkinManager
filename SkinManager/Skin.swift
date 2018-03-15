@@ -10,19 +10,19 @@ import UIKit
 
 private var SkinPickersKey:UInt8 = 0
 
-public final class Skin<Base:NSObjectProtocol> {
-  public let base:Base
+public final class Skin<Base: NSObjectProtocol> {
+  public let base: Base
   
-  public init(_ base:Base){
+  public init(_ base: Base){
       self.base = base
   }
 }
 
 extension Skin{
     
-  typealias ContainerType = [Selector:Applicable]
+  typealias ContainerType = [Selector: Applicable]
     
-  private var skinPickers:ContainerType{
+  private var skinPickers: ContainerType{
     get{
       if let pickers = objc_getAssociatedObject(base, &SkinPickersKey)  {  return pickers as! ContainerType }
             
@@ -61,7 +61,7 @@ extension Skin{
     }
   }
   
-  private func perform(_ sel:Selector,picker:Applicable){
+  private func perform(_ sel: Selector,picker: Applicable){
     picker.apply(to: base, sel: sel)
   }
     
@@ -73,7 +73,7 @@ extension Skin{
 }
 
 extension NSObjectProtocol{
-  public var skin:Skin<Self>{
+  public var skin: Skin<Self>{
     return Skin(self)
   }
     

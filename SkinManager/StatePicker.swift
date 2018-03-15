@@ -9,15 +9,15 @@
 import Foundation
 import UIKit
 
-internal typealias StateValueType = (state:UIControlState,picker:ValueProtocol?)
+internal typealias StateValueType = (state: UIControlState,picker: ValueProtocol?)
 
-internal class StatePicker:PickerProtocol{
+internal class StatePicker: PickerProtocol{
     
   typealias ValueType = StateValueType
     
   internal var values:[ValueType]?
     
-  internal func addPicker(_ picker:ValueProtocol?, for state:UIControlState) {
+  internal func addPicker(_ picker: ValueProtocol?, for state: UIControlState) {
     if let values = values {
       self.values = values.filter{  $0.state != state }
     }else{
@@ -27,7 +27,7 @@ internal class StatePicker:PickerProtocol{
   }
 }
 
-extension StatePicker:Applicable {
+extension StatePicker: Applicable {
     
   func apply(to obj: AnyObject, sel: Selector) {
     
@@ -44,7 +44,7 @@ extension StatePicker:Applicable {
   private typealias setValueForStateIMP = @convention(c) (NSObject, Selector, AnyObject?, UIControlState) -> Void
 }
 
-extension UIControlState:Hashable{
+extension UIControlState: Hashable{
   public var hashValue: Int{
     return Int(self.rawValue)
   }

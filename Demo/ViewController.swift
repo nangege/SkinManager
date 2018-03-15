@@ -45,7 +45,7 @@ class ViewController: UIViewController {
     }
   }
 
-  func updateSkin(){
+  @objc func updateSkin(){
     print("test hehe")
   }
   
