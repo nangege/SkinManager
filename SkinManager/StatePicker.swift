@@ -15,7 +15,7 @@ internal class StatePicker: PickerProtocol{
     
   typealias ValueType = StateValueType
     
-  internal var values:[ValueType]?
+  internal var values: [ValueType]?
     
   internal func addPicker(_ picker: ValueProtocol?, for state: UIControlState) {
     if let values = values {

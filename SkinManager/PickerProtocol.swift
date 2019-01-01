@@ -13,10 +13,10 @@ public protocol ValueProtocol{
 }
 
 public protocol Applicable{
-  func apply(to:AnyObject,sel:Selector)
+  func apply(to: AnyObject,sel: Selector)
 }
 
-public protocol PickerProtocol:class,ValueProtocol,Applicable {
+public protocol PickerProtocol: class,ValueProtocol,Applicable {
     
   associatedtype  ValueType
     
@@ -27,7 +27,7 @@ private struct Closue<T> {
     
   typealias ClosueType = () -> T?
     
-  var closue:ClosueType?
+  var closue: ClosueType?
     
   init(closue: ClosueType?) {
     self.closue = closue

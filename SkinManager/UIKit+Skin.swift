@@ -132,7 +132,7 @@ extension Skin where Base: UIProgressView {
 }
 
 extension Skin where Base: UIPageControl {
-  public var pageIndicatorTintColor:ColorPicker? {
+  public var pageIndicatorTintColor: ColorPicker? {
     set{ addPicker(newValue, for: .PageIndicatorTintColor) }
     get{ return pickerFor(.PageIndicatorTintColor) as? ColorPicker }
   }
@@ -144,35 +144,35 @@ extension Skin where Base: UIPageControl {
 }
 
 extension Skin where Base: UIToolbar {
-  public var barTintColor:ColorPicker? {
+  public var barTintColor: ColorPicker? {
     set{ addPicker(newValue, for: .ToolBarTintColor)}
     get{ return pickerFor(.ToolBarTintColor) as? ColorPicker }
   }
 }
 
 extension Skin where Base: UISearchBar {
-  public var barTintColor:ColorPicker? {
+  public var barTintColor: ColorPicker? {
     set{ addPicker(newValue, for: .SearchBarTintColor)}
     get{ return pickerFor(.SearchBarTintColor) as? ColorPicker }
   }
 }
 
 extension Skin where Base: UINavigationBar {
-  public var barTintColor:ColorPicker?{
+  public var barTintColor: ColorPicker?{
     set{ addPicker(newValue, for: .NavigationBarTintColor)}
     get{ return pickerFor(.NavigationBarTintColor) as? ColorPicker }
   }
 }
 
 extension Skin where Base: UITabBar {
-  public var barTintColor:ColorPicker?{
+  public var barTintColor: ColorPicker?{
     set{ addPicker(newValue, for: .TabBarTintColor)}
     get{ return pickerFor(.TabBarTintColor) as? ColorPicker }
   }
 }
 
 extension Skin where Base: UISwitch {
-  public var onTintColor:ColorPicker?{
+  public var onTintColor: ColorPicker?{
     set{ addPicker(newValue, for: .OnTintColor) }
     get{ return pickerFor(.OnTintColor) as? ColorPicker }
   }
@@ -229,7 +229,7 @@ extension Skin where Base: CALayer {
   }
 }
 
-extension Skin where Base:CAShapeLayer {
+extension Skin where Base: CAShapeLayer {
   public var fillColor: CGColorPicker? {
     set{ addPicker(newValue , for: .ShapeLayerFillColor)}
     get{ return pickerFor(.ShapeLayerFillColor) as? CGColorPicker }

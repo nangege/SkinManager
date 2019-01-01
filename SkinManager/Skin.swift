@@ -8,7 +8,7 @@
 
 import UIKit
 
-private var SkinPickersKey:UInt8 = 0
+private var SkinPickersKey: UInt8 = 0
 
 public final class Skin<Base: NSObjectProtocol> {
   public let base: Base
@@ -35,7 +35,7 @@ extension Skin{
     set{ objc_setAssociatedObject(base, &SkinPickersKey, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC) }
   }
     
-  public func addPicker(_ picker:Applicable?,for key:Selector){
+  public func addPicker(_ picker: Applicable?,for key:Selector){
     
     guard let picker = picker else{
       skinPickers.removeValue(forKey: key)
@@ -50,7 +50,7 @@ extension Skin{
     return skinPickers[key]
   }
   
-  public func addStatePicker(_ picker:ValueProtocol?,for state:UIControlState,selector:Selector){
+  public func addStatePicker(_ picker: ValueProtocol?,for state: UIControlState,selector: Selector){
     
     if let statePicker = pickerFor(selector) as? StatePicker{
       statePicker.addPicker(picker, for: state)

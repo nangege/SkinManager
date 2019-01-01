@@ -38,7 +38,7 @@ public extension ColorInterface {
   }
 }
 
-open class ColorPicker:PickerProtocol,ColorInterface {
+open class ColorPicker: PickerProtocol,ColorInterface {
   
   public typealias ValueType = UIColor
   
@@ -56,7 +56,7 @@ open class ColorPicker:PickerProtocol,ColorInterface {
   }
 }
 
-open class CGColorPicker:PickerProtocol,ColorInterface {
+open class CGColorPicker: PickerProtocol,ColorInterface {
   public typealias ValueType = CGColor
   
   public required init(colors:[UIColor]) {

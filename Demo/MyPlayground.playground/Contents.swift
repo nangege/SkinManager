@@ -8,3 +8,5 @@ let dict:NSDictionary = ["a":3]
 let a = dict.value(forKeyPath: "a")
 
 a as? CGFloat
+
+

@@ -14,6 +14,8 @@ class ViewController: UIViewController {
   @IBOutlet weak var label: UILabel!
   @IBOutlet weak var switchButton: UIButton!
   @IBOutlet weak var imageView: UIImageView!
+
+  
   override func viewDidLoad() {
     super.viewDidLoad()
   
