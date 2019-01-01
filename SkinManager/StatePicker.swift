@@ -9,15 +9,15 @@
 import Foundation
 import UIKit
 
-internal typealias StateValueType = (state: UIControlState,picker: ValueProtocol?)
+typealias StateValueType = (state: UIControlState,picker: ValueProtocol?)
 
-internal class StatePicker: PickerProtocol{
+class StatePicker: PickerProtocol{
     
   typealias ValueType = StateValueType
     
-  internal var values: [ValueType]?
+  var values: [ValueType]?
     
-  internal func addPicker(_ picker: ValueProtocol?, for state: UIControlState) {
+  func addPicker(_ picker: ValueProtocol?, for state: UIControlState) {
     if let values = values {
       self.values = values.filter{  $0.state != state }
     }else{

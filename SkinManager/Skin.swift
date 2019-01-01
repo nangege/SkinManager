@@ -65,7 +65,7 @@ extension Skin{
     picker.apply(to: base, sel: sel)
   }
     
-  internal func updateSkin(){
+  func updateSkin(){
     skinPickers.forEach { (key: Selector, value: Applicable) in
       perform(key, picker: value)
     }
@@ -77,7 +77,7 @@ extension NSObjectProtocol{
     return Skin(self)
   }
     
-  internal func updateSkin(){
+  func updateSkin(){
     skin.updateSkin()
   }
 }
