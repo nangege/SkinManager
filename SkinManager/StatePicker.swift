@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-typealias StateValueType = (state: UIControlState,picker: ValueProtocol?)
+typealias StateValueType = (state: UIControl.State, picker: ValueProtocol?)
 
 class StatePicker: PickerProtocol{
     
@@ -17,7 +17,7 @@ class StatePicker: PickerProtocol{
     
   var values: [ValueType]?
     
-  func addPicker(_ picker: ValueProtocol?, for state: UIControlState) {
+  func addPicker(_ picker: ValueProtocol?, for state: UIControl.State) {
     if let values = values {
       self.values = values.filter{  $0.state != state }
     }else{
@@ -37,15 +37,11 @@ extension StatePicker: Applicable {
     let setState = unsafeBitCast(method, to: setValueForStateIMP.self)
         
     values?.forEach{
-      setState(obj,sel,$0.picker?.skinValue as AnyObject,$0.state)
+      setState(obj,sel, $0.picker?.skinValue as AnyObject, $0.state)
     }
   }
   
-  private typealias setValueForStateIMP = @convention(c) (NSObject, Selector, AnyObject?, UIControlState) -> Void
+  private typealias setValueForStateIMP = @convention(c) (NSObject, Selector, AnyObject?, UIControl.State) -> Void
 }
 
-extension UIControlState: Hashable{
-  public var hashValue: Int{
-    return Int(self.rawValue)
-  }
-}
+extension UIControl.State: Hashable{}

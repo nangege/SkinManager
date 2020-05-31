@@ -30,7 +30,7 @@ open class ImagePicker: PickerProtocol {
   
   required public init(hexs: [String]){
     self.valueGenerator = {
-      let colors = hexs.map{ return UIColor($0)}
+      let colors = hexs.map{ UIColor($0) }
       guard let color = SkinManager.valueFrom(array: colors) else { return nil }
       return UIImage.from(color: color)
     }
@@ -42,7 +42,7 @@ open class ImagePicker: PickerProtocol {
     }
   }
   
-  open class func name(_ name: String,transformer:Transformer<String>) -> ImagePicker{
+  open class func name(_ name: String,transformer: Transformer<String>) -> ImagePicker{
     return .names(transformer(name))
   }
     

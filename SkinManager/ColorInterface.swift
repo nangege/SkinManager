@@ -9,8 +9,8 @@
 import UIKit
 
 public protocol ColorInterface: PickerProtocol {
-  init(colors:[UIColor])
-  init(keyPath:String)
+  init(colors: [UIColor])
+  init(keyPath: String)
 }
 
 public extension ColorInterface {
@@ -38,11 +38,11 @@ public extension ColorInterface {
   }
 }
 
-open class ColorPicker: PickerProtocol,ColorInterface {
+open class ColorPicker: PickerProtocol, ColorInterface {
   
   public typealias ValueType = UIColor
   
-  public required init(colors:[UIColor]) {
+  public required init(colors: [UIColor]) {
     self.valueGenerator = {
       return SkinManager.valueFrom(array: colors)
     }
@@ -56,18 +56,18 @@ open class ColorPicker: PickerProtocol,ColorInterface {
   }
 }
 
-open class CGColorPicker: PickerProtocol,ColorInterface {
+open class CGColorPicker: PickerProtocol, ColorInterface {
   public typealias ValueType = CGColor
   
-  public required init(colors:[UIColor]) {
+  public required init(colors: [UIColor]) {
     self.valueGenerator = {
       return SkinManager.valueFrom(array: colors)?.cgColor
     }
   }
   
-  public required init(keyPath:String) {
+  public required init(keyPath: String) {
     self.valueGenerator = {
-      guard let rgba:String = SkinManager.value(forKeyPath: keyPath) else{ return nil }
+      guard let rgba: String = SkinManager.value(forKeyPath: keyPath) else{ return nil }
       return UIColor(rgba).cgColor
     }
   }

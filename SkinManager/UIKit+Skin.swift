@@ -80,23 +80,23 @@ extension Skin where Base: UIImageView {
 
 extension Skin where Base: UIButton {
   
-  public func setImage(_ imagePicker:ImagePicker?, for state:UIControlState) {
+  public func setImage(_ imagePicker: ImagePicker?, for state: UIControl.State) {
     addStatePicker(imagePicker, for: state, selector: .SetButtonImage)
   }
   
-  public func setBackgroundColor(_ imagePicker:ImagePicker?, for state:UIControlState) {
+  public func setBackgroundColor(_ imagePicker: ImagePicker?, for state: UIControl.State) {
     addPicker(imagePicker, for: .SetButtonBackground)
   }
   
-  public func setTitle(_ stringPicker:StringPicker?,for state:UIControlState) {
+  public func setTitle(_ stringPicker: StringPicker?, for state: UIControl.State) {
     addStatePicker(stringPicker, for: state, selector: .SetButtonTitle)
   }
   
-  public func setTitleColor(_ colorPicker:ColorPicker?, for state:UIControlState) {
+  public func setTitleColor(_ colorPicker: ColorPicker?, for state: UIControl.State) {
     addPicker(colorPicker, for: .SetButtonTitleColor)
   }
   
-  public func setAttributedTitle(_ attributedStrinPicker:AttributedStringPicker?, for state:UIControlState) {
+  public func setAttributedTitle(_ attributedStrinPicker: AttributedStringPicker?, for state: UIControl.State) {
     addStatePicker(attributedStrinPicker, for: state, selector: .SetButtonAttributeTitle)
   }
 }
